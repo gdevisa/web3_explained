@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      Web3 Explained and Examined
+    </title>
+    <meta charset="utf-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"  crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          // Functions to open and close a modal
+          function openModal($el) {
+            $el.classList.add('is-active');
+          }
+
+          function closeModal($el) {
+            $el.classList.remove('is-active');
+          }
+
+          function closeAllModals() {
+            (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+              closeModal($modal);
+            });
+          }
+
+          // Add a click event on buttons to open a specific modal
+          (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+            const modal = $trigger.dataset.target;
+            const $target = document.getElementById(modal);
+            console.log($target);
+
+            $trigger.addEventListener('click', () => {
+              openModal($target);
+            });
+          });
+
+          // Add a click event on various child elements to close the parent modal
+          (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+            const $target = $close.closest('.modal');
+
+            $close.addEventListener('click', () => {
+              closeModal($target);
+            });
+          });
+
+          // Add a keyboard event to close all modals
+          document.addEventListener('keydown', (event) => {
+            const e = event || window.event;
+
+            if (e.keyCode === 27) { // Escape key
+              closeAllModals();
+            }
+          });
+        });
+    </script>
+  </head>
+  <body class="has-background-grey-darker is-family-monospace">
+
+      <!-- Page Title -->
+        <div class="block">
+            <section class="hero is-fullheight is-link">
+              <div class="hero-body">
+
+                  <div class="container has-text-centered">
+                    <span class="icon is-large">
+                        <i class="fa fa-2x fa-globe"></i>
+                    </span>
+
+                    <p class="title">
+                      Web3 Explained and Examined
+                    </p>
+                    <p class="subtitle">
+                      What is it and how is it going to change the Internet?
+                    </p>
+                  </div>
+              </div>
+              <div class="hero-foot">
+                  <div class="container has-text-centered">
+                    <p>..but first, let's take a look at the history </p>
+                    <br>
+                    <span class="icon is-large">
+                      <i class="fa fa-2x fa-angles-down"></i>
+                    </span>
+
+                  </div>
+              </div>
+                <br>
+            </section>
+
+        </div>
+
+
+      <div class="block">
+      <div class="container is-fluid">
+       <div class="tile is-ancestor">
+          <div class="tile is-5 is-parent">
+            <div class="tile is-child box">
+                <div class="content is-medium">
+                    <p class="title">Web 1.0</p>
+                    <p class="subtitle">(1991-2004)</p>
+                    <p>Refers to the first stage of the World Wide Web</p>
+                    <ul>
+                        <li>Read only - static pages user can't change/interact with</li>
+                        <li>Content provided from an ISP-hosted web server's file system or from one's own server</li>
+                        <li>Pages built using Server Side Includes or Common Gateway Interface instead of a dynamic programming language</li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+          <div class="tile is-parent">
+            <div class="tile is-child box">
+              <div class="content is-medium">
+                  <p class="title">Web 2.0</p>
+                  <p class="subtitle">(2004-Now)</p>
+                  <p>The second stage in the evolution - the "Social" Web</p>
+                  <ul>
+                        <li>Read AND Write webpages - information flows both ways between the user and the site, user generated content as an essential part</li>
+                        <li>Dynamic pages that are responsive to user input</li>
+                        <li>Content is rather provided from a relational database management system or "the cloud"</li>
+                        <li>Pages built using dynamic programming languages and frameworks like JavaScript, AJAX, Python, PHP, etc.</li>
+                        <li>Software as a Service - websites developed APIs to allow self-usage, such as by a web/software application</li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!-- HERO -->
+        <div class="block">
+            <section class="hero is-halfheight is-link">
+                <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h1 class="title is-spaced">So, What's Next? The New Internet?</h1>
+                    <h2 class="subtitle">Decentralized, secure, private. That is what some Web3 technologies promise...</h2>
+                </div>
+                </div>
+            </section>
+        </div>
+
+
+      <div class="block">
+      <div class="container is-fluid">
+       <div class="tile is-ancestor">
+          <div class="tile is-parent is-5">
+            <article class="tile is-child notification is-warning">
+              <div class="content">
+                <p class="title">But it's not that simple</p>
+                <p class="subtitle">The whole evolution has been a gradual process with some general time periods referred to as "1.0" or "2.0"</p>
+                <div class="content is-medium">
+                    <p><strong>Right now, we are in the middle of another paradigm/trend shift</strong></p>
+                    <p>It's pretty hard to define something which is not a thing yet, or not even a thing but rather a
+                        bundle of technologies used by different websites because there isn't one central "mothership" with its software running everything</p>
+
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="tile">
+              <div class="tile is-parent is-vertical">
+                <article class="tile is-child notification">
+                  <p class="title">"The official tale" - Web 3.0</p>
+                  <p class="subtitle">as per the World Wide Web Consortium (W3C)</p>
+                  <div class="content is-medium">
+                      <p>They call it the "Semantic" Web. Basically, altering it into a database, the whole point of which is to organize the information in a more machine-friendly, machine-readable way.</p>
+                      <p>This way the Artificial Intelligence would be able to leverage the user data and semantic metadata, and provide faster and more relevant results. Something that we already see implemented widely on a website/platform level</p>
+                      <p>Content is accessible by multiple applications, for any device connected, and the services can be used anywhere</p>
+                      <p>Also, can be characterized by use of 3D graphics, AR/VR, other ways of representing or transmitting information to/by users like livestreams</p>
+                      <p><strong>By and large, already what we have today</strong></p>
+                  </div>
+                </article>
+            </div>
+          </div>
+
+
+        </div>
+          <div class="tile is-ancestor">
+          <div class="tile is-parent is-7">
+            <article class="tile is-child notification">
+              <p class="title">"The community tale" - Web3</p>
+              <p class="subtitle">Probably the real reason why you're here</p>
+                <div class="content is-medium">
+                    <p><strong> At its core, Web3 is a rebranding of crypto and blockchain, the technology based around a
+                        worldwide network of computers that talk to each other and validate and record transactions without human intervention or centralized oversight </strong></p>
+                    <p>The idea is to apply blockchain technology in different ways to make the Internet more secure, private, "give the power back to the users", etc.</p>
+                    <p><strong>The advocates of Web3 look at the Internet from a bit of a different angle, focusing more on the power relationship between the companies
+                    providing services with their websites and users/consumers</strong></p>
+
+                    <p>As explained on the Ethereum.org, "Web2 refers to the version of the internet most of us know today.
+                        An internet dominated by companies that provide services in exchange for your personal data. Web3, in the context of Ethereum, refers to decentralized apps that run on the blockchain. These are apps that allow anyone to participate without monetising their personal data."</p>
+                    <p><strong>Ethereum (blockchain) network is very important here because it's the one leading charge in the development of Web3. For example, the NFTs, which allow someone to own digital artworks, run on the Ethereum network utilizing its Smart Contracts feature. For now, this is the biggest
+                    actual manifestation of Web3 on the Internet today.</strong></p>
+                    <p>But the proponents of Web3 are talking about bigger things than just selling and collecting images, right? Right</p>
+                    <p><strong>Therefore, dApps - decentralized applications, which run on the Ethereum or analogue network (blockchain)</strong></p>
+                    <p>Basically, an alternative to the existing architecture of websites/apps where a given company has a server which holds all the data and runs all the back-end code for it to function,
+                        and instead running all those server side processes on the distributed decentralized Ethereum (or other) network</p>
+                    <p><em>Some believers in Web3 even think that, in the future, it would be possible to run tech companies using the same underlying mechanisms and technologies by having DAOs - decentralized autonomous organizations</em></p>
+
+                </div>
+            </article>
+          </div>
+
+          <div class="tile">
+              <div class="tile is-parent is-vertical">
+                <article class="tile is-child notification is-warning">
+
+                </article>
+            </div>
+          </div>
+
+
+        </div>
+          <div class="tile">
+
+          </div>
+      </div>
+      </div>
+
+      <div class="block">
+            <section class="hero is-halfheight is-link">
+                <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h1 class="title is-spaced">OK, I see where you're going</h1>
+                    <h2 class="subtitle">Let's start bringing it all together</h2>
+                </div>
+                </div>
+            </section>
+      </div>
+
+      <div class="block">
+      <div class="container is-fluid">
+       <div class="tile is-ancestor">
+          <div class="tile is-5 is-parent">
+            <div class="tile is-child box">
+                <div class="content is-medium">
+                    <p class="title">Web2 vs Web3</p>
+                    <p class="subtitle">Some Practical Comparison</p>
+                    <table>
+                        <thead>
+                          <tr>
+                            <th>Web2</th>
+                            <th>Web3</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Social media companies can censor any account or post</td>
+                            <td>Web3 content would be uncensorable because control is decentralized</td>
+                          </tr>
+                          <tr>
+                            <td>Payment service may decide to not allow payments for certain types of work</td>
+                            <td>Web3 payment apps require no personal data and can't prevent payments</td>
+                          </tr>
+                          <tr>
+                            <td>Servers for gig-economy apps could go down and affect worker income</td>
+                            <td>Web3 servers can't go down – they use Ethereum (or other network), a decentralized network of thousands of computers as their back end</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+          </div>
+          <div class="tile is-parent">
+            <div class="tile is-child box">
+              <div class="content is-medium">
+                  <p class="title">Web3 Limitations</p>
+                  <p class="subtitle">It's not that easy</p>
+                  <ul>
+                      <li>Scalability – transactions are slower on Web3 because they're decentralized. Changes to state, like a payment, need to be processed by a miner and propagated throughout the network</li>
+                      <li>Inclusion - not everyone can or is willing to run a node of the blockchain on their device (especially mobile)</li>
+                      <li>UX – interacting with Web3 applications can require extra steps, software, and education. This can be a hurdle to adoption</li>
+                      <li>Accessibility – the lack of integration in modern web browsers makes web3 less accessible to most users</li>
+                      <li>Incentive - if no one owns anything, then without financial motivation there will be fewer people interested in development. A possible solution to that is minting tokens for developers/contributors, but how that would work in a particular case is not clear</li>
+                      <li>Cost – most successful dApps put very small portions of their code and you can't write much data on the blockchain as it's expensive</li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="block">
+            <section class="hero is-halfheight is-warning">
+                <div class="hero-body">
+                <div class="container has-text-centered">
+                    <a>
+                        <h1 class="title is-spaced js-modal-trigger " data-target="modal-js-example">Here's what we actually get
+
+                        <span class="icon is-large">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                        </span>
+                        <p class="subtitle is-size-6 "><em>(click)</em></p>
+                        </h1>
+                    </a>
+                </div>
+                </div>
+            </section>
+      </div>
+
+      <!-- Footer -->
+
+        <footer class="footer">
+          <div class="container has-text-centered">
+                  <a href="/sources" target="_blank" rel="noopener noreferrer"><p>Sources</p></a>
+                  <p>Created by Rodion Dovhan</p>
+
+          </div>
+        </footer>
+
+    <div id="modal-js-example" class="modal">
+      <div class="modal-background"></div>
+
+      <div class="modal-content">
+        <div class="box">
+          <p class="is-size-5">Looking at everything that we have at hand right now, I want to argue that Web3 as imagined by most of its proponents is not going to happen, at least not in the same way or scale.
+              For the most part, what Web3 boosters talk about is theoretical and does not have good precedents yet, while there already are serious issues undermining the future success.</p>
+            <br>
+            <p><strong>Decentralization</strong>. The main goal of Web3 in many regards. They say everyone is going to be a peer in the network, “share the burden”, therefore, decentralization, equality, etc.
+              But that is not entirely feasible. Becoming an actual peer/node in the network requires for a “client”/server of Ethereum (or other network) to run on your machine,
+              or in other words for you to be connected to the blockchain to modify or render its state, which a) isn’t the most user friendly and easy thing to set up on your machine, b) excludes mobile devices and you can’t just run it in a desktop web browser,
+              and c) a lot of people are fine with a company running everything on their servers and providing services (remember, that was part of the switch from Web 1.0 to 2.0). Therefore, a significant chunk of the people aren’t gonna be full participants of the network, which undermines the whole idea of decentralization. It would be more appropriate to call it a “redistribution of the Internet” into the hands of actual peers. Wait, but then how are we able to open Web3 websites that already exist simply in our web browser without installing anything?</p>
+            <br>
+            <p><strong>Centralization</strong>. The way it is actually done at the moment is that you interact with a node that’s running remotely on a server. But the whole point was to get rid of the servers because they create centralization, right? Right.
+              Moreover, almost all dApps use either Infura or Alchemy for development and interaction with the blockchain. They can’t somehow tamper with a blockchain because it’s all publicly available and distributed, but all the read requests are still going through them and the outputs these websites’ APIs give about the state of the chain aren’t verified anyhow so all the clients are just trusting their response.
+              We see the same with centralized crypto exchanges. This can potentially undermine privacy and security of the whole system. Some see it as a necessary compromise, and think that in the event if the companies misbehave somehow the users can just leave and go elsewhere, but that doesn’t sound like a very practical approach to me. Although there are chains which promise easier, direct access which would solve this issue, they are under the radar for most people and aren’t being hyped resulting in further building of Web3 on the wrong foundation.</p>
+            <br>
+            <p><strong>Cost</strong>. Another big issue which makes the previous one even worse. For example, as a cryptographer and a former CEO of Signal Moxie Marlinspike found out, if you own an NFT on OpenSea and it’s removed from there, then you won’t be able to find it in your crypto wallet precisely because there happens to be a chain of API calls from the wallet app to Etherscan to Infura and then routing back to call OpenSea API to see the NFT. In this case, the main issue is in that last step and the fact that an NFT’s data isn’t stored on the chain, instead it’s just that API link. The reason is it would be extremely costly to store that much data on the blockchain, which is another aforementioned in the overview limiting factor for Web3.</p>
+            <br>
+            <p><strong>So, it’s not that “bright and shiny” as some Web3 idealists might want to think</strong>. There are going to have to be a lot of compromises made. Looking back at the history of the Internet and tech sector in general, we see cycles of centralization and decentralization. For instance, after WW2 everything was very centralized in the government's hands and after that at some point came hobbyists building their own computers at home, who then started creating their own companies. A similar but reverse thing happened with software, at first you had to build an OS by yourself, then came Microsoft and basically took over most of the market. The Internet itself, Web 1.0, was open for all, decentralized as Web3 enthusiasts would say, and then came Web 2.0 which got centralized by the big tech. Now, they advocate, it’s time to decentralize it again with Web3. So, they’re following the cycle and I agree that there are issues with Web2 as it is now and that would be a natural course of events, but I think some people are clouded by the hype and their vision of “completely decentralized, owned by the people, trustless Internet”, is unrealistic. The government is still heavily involved in the tech sector, not to the same extent as in the 1960s, of course, but it didn’t just disappear as a thing, and in fact they work a lot together with private companies. Most of the computers come with either Windows or MacOS, but anyone is still free to find other free software online or build their own. Again, a lot of people are just happy to consume what exists. I believe a similar thing will happen with Web3 in the end. Not all the websites are gonna move to Web3 standards, not all of them need that, and the ones that will are going to have to work differently than what we see now in order to deliver on the promise of true decentralization, privacy, and security.</p>
+            <br>
+            <p class="is-size-7 is-italic">P.S.: I'm not an expert ;)</p>
+        </div>
+      </div>
+
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+  </body>
+</html>
